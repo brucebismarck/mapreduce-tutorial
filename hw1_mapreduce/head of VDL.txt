@@ -1,0 +1,5 @@
+siteId,BackgroundID,ednum,Discontinue_Reason,Dose,Medication,Generic,Offset,Onset,Printx,PRN,Refill_date,Refill_number,Regimen,Route,Tab,TABLET,NDC,FORM,PACKAGE,TITRATION_TAPER,A_D,ADEQUATEDOSE,ADEQUATEDURATION,KNOWLEDGE_ID,PsyMed,REASONID,REGIMENID,ROUTEID,SIG,Status
+
+'ArapahoeHouse,3,36581,,15mg,clorazepate,CLORAZEPATE,01/01/1900,02/12/2011,,,01/01/1900,,Q4h,oral,,1,55887-*159-30,tablet,Tablet,,,,,949,Yes,,10,,tablet/s,'
+
+

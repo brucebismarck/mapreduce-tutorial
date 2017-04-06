@@ -1,0 +1,31 @@
+hadoop jar /var/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.7.3.jar -input enrollment.txt -output classresults -mapper/shared/escott/example/ClassCountMapper.py -reducer/shared/escott/example/ClassCountReducer.py 
+
+
+# move file from local to remote#
+scp Q2_reducer.py  class19@152.2.23.173:/shared/class19
+
+
+# the VDL data 
+/mindlink/VDL2011_Meds.txt
+
+# test it 
+hadoop jar /var/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.7.3.jar -input /mindlink/VDL2011_Meds.txt  -output Q2results -mapper /shared/class19/Q2_mapper.py -reducer /shared/class19/Q2_reducer_1.py
+
+# permission denied
+chmod +x /home/hduser/mapper.py
+
+# give all ugo excuation permisions of files start with Q3
+chmod ugo+rwx Q3_*
+
+# see the condition of each remote local files
+ls -l
+
+
+# remove Q2results
+hadoop fs -rm -r -f Q2results
+
+# if your python generate bugs, this line will be shown in your output
+PipeMapRed.waitOutputThreads()
+
+# test the mapper and reducer
+echo 'ArapahoeHouse,3,36581,,15mg,clorazepate,CLORAZEPATE,01/01/1900,02/12/2011,,,01/01/1900,,Q4h,oral,,1,55887-*159-30,tablet,Tablet,,,,,949,Yes,,10,,tablet/s,'| /Users/wenyueliu/Desktop/INLS_626/Q2_mapper.py |sort | /Users/wenyueliu/Desktop/INLS_626/Q2_reducer.py
